@@ -11,9 +11,9 @@ on:
         default: "5"
       saveLocalCopy:
         type: boolean
-        default: false
+        default: true
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '38 1 * * *'
 
 env:
   OUTPUT_DIR: /app/output
@@ -45,9 +45,9 @@ jobs:
             "Fit": true,
             "Json": false,
             "Tcx": false,
-            "SaveLocalCopy": ${{ github.event.inputs.saveLocalCopy || false }},
-            "IncludeTimeInHRZones": false,
-            "IncludeTimeInPowerZones": false,
+            "SaveLocalCopy": ${{ github.event.inputs.saveLocalCopy || true }},
+            "IncludeTimeInHRZones": true,
+            "IncludeTimeInPowerZones": true,
             "StackedWorkouts": {
               "AutomaticallyStackWorkouts": false,
               "MaxAllowedGapSeconds": 300
